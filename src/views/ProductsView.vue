@@ -1,5 +1,11 @@
+<script setup>
+import ProductsList from "../components/ProductsList.vue";
+</script>
+
 <template>
   <main id="Products">
-    <h1>This is the products page</h1>
+    <ProductsList />
   </main>
 </template>
+
+<style scoped></style>

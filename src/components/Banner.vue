@@ -17,10 +17,11 @@
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 #Banner {
-  margin-top: 50px;
+  padding: 25px 0;
 }
+
 .banner-container {
   display: flex;
 }
@@ -36,18 +37,18 @@
 
 .banner-text {
   padding: 50px;
-}
 
-.banner-text-title {
-  font-weight: bold;
-}
+  &-title {
+    font-weight: bold;
+  }
 
-.banner-text-description {
-  margin: 10px 0;
-}
+  &-description {
+    margin: 10px 0;
+  }
 
-.banner-text-btn {
-  padding: 10px 0;
+  &-btn {
+    padding: 10px 0;
+  }
 }
 
 .banner-img-container {

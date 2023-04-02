@@ -10,7 +10,10 @@
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
+#Showcase {
+  padding: 25px 0;
+}
 .showcase-title {
   font-size: 2rem;
 }
@@ -29,16 +32,16 @@
   justify-content: center;
   align-items: end;
   font-size: 1.2rem;
-}
 
-.showcase-item-one {
-  grid-column: 1 / span 2;
-  grid-row: 1 / span 2;
-  aspect-ratio: 1;
-}
+  &-one {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+    aspect-ratio: 1;
+  }
 
-.showcase-item-two {
-  grid-column: 3;
-  grid-row: 1 / span 2;
+  &-two {
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
 }
 </style>

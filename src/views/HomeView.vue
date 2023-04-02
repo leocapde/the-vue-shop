@@ -5,13 +5,8 @@ import Banner from "../components/Banner.vue";
 
 <template>
   <main id="Home">
+    <Banner />
     <Showcase />
     <Banner />
   </main>
 </template>
-
-<style scoped>
-#Home {
-  padding: 25px;
-}
-</style>
