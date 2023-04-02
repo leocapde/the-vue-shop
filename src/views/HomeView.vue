@@ -5,7 +5,6 @@ import Banner from "../components/Banner.vue";
 
 <template>
   <main id="Home">
-    <Banner />
     <Showcase />
     <Banner />
   </main>

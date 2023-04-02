@@ -18,7 +18,6 @@ const { products, filter } = storeToRefs(useProductsStore());
       >
         <template #title>{{ product.name }}</template>
         <template #price>{{ product.price }} €</template>
-        <!-- <template #categorie>{{ product.categorie }}</template> -->
       </ProductsCard>
     </div>
   </section>

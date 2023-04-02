@@ -46,6 +46,7 @@ export default {
 
 .products-filter-btn {
   padding: 0 1rem;
+  font-size: 1.2rem;
   border-right: 1px solid var(--color-border);
   cursor: pointer;
 

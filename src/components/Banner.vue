@@ -1,3 +1,8 @@
+<script setup>
+import { useProductsStore } from "../stores/products";
+const { resetFilter } = useProductsStore();
+</script>
+
 <template>
   <section id="Banner">
     <div class="banner-container">
@@ -7,9 +12,13 @@
           <p class="banner-text-description">
             Découvrez maintenant une selection de nos meilleurs produits
           </p>
-          <RouterLink to="/products" class="banner-text-btn"
-            >Voir nos produits</RouterLink
+          <RouterLink
+            to="/products"
+            class="banner-text-btn"
+            v-on:click="resetFilter"
           >
+            Voir nos produits
+          </RouterLink>
         </div>
       </div>
       <div class="banner-img-container">Photo</div>

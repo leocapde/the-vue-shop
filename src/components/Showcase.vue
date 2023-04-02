@@ -1,11 +1,38 @@
+<script setup>
+import { useProductsStore } from "../stores/products";
+const { toggleFilter } = useProductsStore();
+</script>
+
 <template>
   <section id="Showcase">
-    <h2 class="showcase-title">Showcase</h2>
     <div class="showcase-container">
-      <div class="showcase-item showcase-item-one">PC</div>
-      <div class="showcase-item showcase-item-two">Smartphones</div>
-      <div class="showcase-item showcase-item-four-top">Moniteurs</div>
-      <div class="showcase-item showcase-item-four-bottom">Tablettes</div>
+      <RouterLink
+        to="/products"
+        class="showcase-item showcase-item-one"
+        v-on:click="toggleFilter('pc')"
+        >PC</RouterLink
+      >
+      <RouterLink
+        to="/products"
+        class="showcase-item showcase-item-two"
+        v-on:click="toggleFilter('smartphones')"
+      >
+        Smartphones
+      </RouterLink>
+      <RouterLink
+        to="/products"
+        class="showcase-item showcase-item-four-top"
+        v-on:click="toggleFilter('moniteurs')"
+      >
+        Moniteurs
+      </RouterLink>
+      <RouterLink
+        to="/products"
+        class="showcase-item showcase-item-four-bottom"
+        v-on:click="toggleFilter('tablettes')"
+      >
+        Tablettes
+      </RouterLink>
     </div>
   </section>
 </template>
@@ -42,6 +69,13 @@
   &-two {
     grid-column: 3;
     grid-row: 1 / span 2;
+  }
+
+  &:hover {
+    padding: 25px;
+    font-weight: bold;
+    // opacity: 0.8;
+    background-color: var(--color-background-mute);
   }
 }
 </style>

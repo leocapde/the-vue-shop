@@ -67,5 +67,8 @@ export const useProductsStore = defineStore({
     toggleFilter(filter) {
       this.filter = filter;
     },
+    resetFilter() {
+      this.filter = "all";
+    },
   },
 });

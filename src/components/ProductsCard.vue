@@ -6,9 +6,6 @@
     <div class="products-card-price">
       <slot name="price"></slot>
     </div>
-    <!-- <div class="products-card-categorie">
-      <slot name="categorie"></slot>
-    </div> -->
   </div>
 </template>
 
