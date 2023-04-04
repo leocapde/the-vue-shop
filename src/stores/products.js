@@ -4,6 +4,7 @@ export const useProductsStore = defineStore({
   id: "products",
   state: () => ({
     filter: "all",
+    product: {},
     products: [
       {
         id: 1,
@@ -69,6 +70,10 @@ export const useProductsStore = defineStore({
     },
     resetFilter() {
       this.filter = "all";
+    },
+    async getProduct(id) {
+      const index = this.products.findIndex((product) => product.id === id);
+      this.product = this.products[index];
     },
   },
 });

@@ -29,14 +29,15 @@ a,
 }
 
 @media (hover: hover) {
-  a:hover {
+  a:hover,
+  button:hover {
     background-color: hsla(160, 100%, 37%, 0.2);
   }
 }
 
 main {
   width: 100%;
-  max-width: 1250px;
+  max-width: 1400px;
   margin: auto;
   padding: 25px;
 }

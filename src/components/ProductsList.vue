@@ -15,6 +15,7 @@ const { products, filter } = storeToRefs(useProductsStore());
         v-for="product in products"
         :class="product.categorie"
         :key="product.id"
+        :to="{ name: 'product', params: { id: product.id } }"
       >
         <template #title>{{ product.name }}</template>
         <template #price>{{ product.price }} €</template>
@@ -28,6 +29,21 @@ const { products, filter } = storeToRefs(useProductsStore());
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
+
+  // Extra-large screen
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  // Large screen
+  @media (max-width: 992px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  // Medium screen
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
 
   &.pc .products-card:not(.pc),
   &.smartphones .products-card:not(.smartphones),

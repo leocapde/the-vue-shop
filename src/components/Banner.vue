@@ -17,11 +17,11 @@ const { resetFilter } = useProductsStore();
             class="banner-text-btn"
             v-on:click="resetFilter"
           >
-            Voir nos produits
+            Découvrir nos produits
           </RouterLink>
         </div>
       </div>
-      <div class="banner-img-container">Photo</div>
+      <div class="banner-img-container">cf: Backgroud</div>
     </div>
   </section>
 </template>
@@ -33,6 +33,10 @@ const { resetFilter } = useProductsStore();
 
 .banner-container {
   display: flex;
+
+  @media (max-width: 768px) {
+    flex-direction: column-reverse;
+  }
 }
 
 .banner-text-container {
@@ -42,6 +46,10 @@ const { resetFilter } = useProductsStore();
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  @media (max-width: 768px) {
+    border-radius: 0 0 10px 10px;
+  }
 }
 
 .banner-text {
@@ -52,11 +60,13 @@ const { resetFilter } = useProductsStore();
   }
 
   &-description {
-    margin: 10px 0;
+    margin: 20px 0 30px 0;
   }
 
   &-btn {
-    padding: 10px 0;
+    padding: 10px 25px;
+    border: 2px solid hsla(160, 100%, 37%, 0.2);
+    border-radius: 10px;
   }
 }
 
@@ -64,5 +74,11 @@ const { resetFilter } = useProductsStore();
   flex: 1;
   background-color: var(--color-background-mute);
   border-radius: 0 10px 10px 0;
+  padding: 10px;
+
+  @media (max-width: 768px) {
+    border-radius: 10px 10px 0 0;
+    min-height: 200px;
+  }
 }
 </style>

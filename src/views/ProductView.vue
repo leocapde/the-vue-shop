@@ -1,5 +1,9 @@
+<script setup>
+import ProductShowing from "../components/ProductShowing.vue";
+</script>
+
 <template>
   <main id="Product">
-    <h1>This is an product page</h1>
+    <ProductShowing />
   </main>
 </template>
