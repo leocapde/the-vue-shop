@@ -18,9 +18,14 @@ const { resetFilter } = useProductsStore();
       </div>
     </RouterLink>
     <nav class="header-nav">
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/products" v-on:click="resetFilter">Produits</RouterLink>
-      <RouterLink to="/shop">Shop</RouterLink>
+      <RouterLink class="header-nav-item" to="/">Accueil</RouterLink>
+      <RouterLink
+        class="header-nav-item"
+        to="/products"
+        v-on:click="resetFilter"
+        >Produits</RouterLink
+      >
+      <RouterLink class="header-nav-item" to="/cart"> Panier </RouterLink>
     </nav>
   </header>
 </template>
@@ -34,7 +39,7 @@ const { resetFilter } = useProductsStore();
   align-items: center;
   justify-content: space-between;
   background-color: var(--color-background-soft);
-  padding: 15px;
+  padding: 15px 25px;
   z-index: 1;
   box-shadow: 0 1px 10px rgba(0, 0, 0, 0.65);
 }
@@ -53,11 +58,18 @@ const { resetFilter } = useProductsStore();
   margin-right: 10px;
 }
 
-nav a {
-  display: inline-block;
+.header-nav {
+  display: flex;
+  flex-direction: row;
   font-size: 1.4rem;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+
+  &-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 1rem;
+    border-left: 1px solid var(--color-border);
+  }
 
   &.router-link-exact-active {
     color: var(--color-text);

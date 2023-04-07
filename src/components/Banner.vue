@@ -41,7 +41,7 @@ const { resetFilter } = useProductsStore();
 
 .banner-text-container {
   flex: 1;
-  background-color: var(--color-background-soft);
+  background-color: var(--color-background-mute);
   border-radius: 10px 0 0 10px;
   display: flex;
   flex-direction: column;
@@ -72,7 +72,7 @@ const { resetFilter } = useProductsStore();
 
 .banner-img-container {
   flex: 1;
-  background-color: var(--color-background-mute);
+  background-color: var(--color-background-soft);
   border-radius: 0 10px 10px 0;
   padding: 10px;
 

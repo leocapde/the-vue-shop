@@ -13,7 +13,7 @@
 
 <style scoped lang="scss">
 .products-card {
-  background-color: var(--color-background-soft);
+  background-color: var(--color-background-mute);
   aspect-ratio: 1;
   border-radius: 10px;
   padding: 0;
@@ -33,7 +33,7 @@
 
     &:hover {
       padding-bottom: 25px;
-      background-color: var(--color-background-mute);
+      background-color: var(--color-background-soft);
     }
   }
 

@@ -24,7 +24,7 @@ import Footer from "./components/Footer.vue";
 a,
 .green {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  color: #00bd7e;
   transition: 0.4s;
 }
 

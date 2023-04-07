@@ -43,10 +43,20 @@ export const useProductsStore = defineStore({
       },
       {
         id: 6,
-        name: "Écran PC 24 pouces Professionnel ViewFinity S60U",
+        name: 'Écran PC 24" Professionnel ViewFinity S60U',
         price: 199,
         categorie: "moniteurs",
         trending: false,
+        specs: {
+          Marque: "Samsung",
+          Taille: '24"',
+          Résolution: "2560 x 1440 pixels",
+          Définition: "QHD",
+          "Type de dalle": "IPS",
+          "Fréquence de balayage": "75 Hz",
+          "Temps de réponse": "5 ms",
+          Garantie: "2 ans",
+        },
       },
       {
         id: 7,
@@ -54,6 +64,9 @@ export const useProductsStore = defineStore({
         price: 980,
         categorie: "tablettes",
         trending: false,
+        specs: {
+          Garantie: "2 ans",
+        },
       },
       {
         id: 8,

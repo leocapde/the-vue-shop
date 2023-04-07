@@ -21,11 +21,14 @@ const { product } = storeToRefs(useProductsStore());
       <div class="product-showing-price">{{ product.price }}€</div>
       <button class="product-showing-btn green">Ajouter au panier 🛒</button>
     </div>
-    <div class="product-showing-spec">
+    <div class="product-showing-spec" v-if="product.specs">
       <h4 class="product-showing-spec-title">Caractéristiques</h4>
-      <div class="product-showing-spec-item" v-for="n in 25">
-        <span>Lorem ipsum dolor :</span> sit amet consectetur adipisicing elit.
-        Officia distinctio eius odio laborum porro ab!
+      <div
+        class="product-showing-spec-item"
+        v-for="(value, key, index) in product.specs"
+        :key="index"
+      >
+        <span>{{ key }} :</span> {{ value }}
       </div>
     </div>
   </section>

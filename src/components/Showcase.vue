@@ -52,7 +52,7 @@ const { toggleFilter } = useProductsStore();
 }
 
 .showcase-item {
-  background-color: var(--color-background-soft);
+  background-color: var(--color-background-mute);
   border-radius: 10px;
   padding: 10px;
   display: flex;
@@ -126,7 +126,7 @@ const { toggleFilter } = useProductsStore();
   &:hover {
     padding: 25px;
     font-weight: bold;
-    background-color: var(--color-background-mute);
+    background-color: var(--color-background-soft);
   }
 }
 </style>
