@@ -4,6 +4,8 @@ import { useCartStore } from "../stores/cart";
 import CartProduct from "../components/CartProduct.vue";
 import CartTotal from "../components/CartTotal.vue";
 import DeleteBtn from "../components/buttons/DeleteBtn.vue";
+import Banner from "../components/Banner.vue";
+import Trending from "../components/Trending.vue";
 
 const { cart } = storeToRefs(useCartStore());
 const { deleteToCart } = useCartStore();
@@ -40,6 +42,8 @@ const { deleteToCart } = useCartStore();
         </CartTotal>
       </div>
     </div>
+    <Banner />
+    <Trending />
   </main>
 </template>
 

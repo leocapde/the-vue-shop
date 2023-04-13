@@ -40,6 +40,7 @@
   &-title {
     font-weight: bold;
     font-size: 1.5rem;
+    margin: 0;
   }
 }
 </style>

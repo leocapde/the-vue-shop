@@ -2,14 +2,13 @@
 import { storeToRefs } from "pinia";
 import { useProductsStore } from "../stores/products";
 import { useCartStore } from "../stores/cart";
-import Banner from "./Banner.vue";
 import ValidateBtn from "./buttons/ValidateBtn.vue";
 const { product } = storeToRefs(useProductsStore());
 const { addToCart } = useCartStore();
 </script>
 
 <template>
-  <section id="ProductShowing">
+  <section id="ProductShowing" :key="this.$route.params.id">
     <div class="product-showing-img">cf: Image</div>
     <div class="product-showing-description">
       <h3 class="product-showing-title">{{ product.name }}</h3>
@@ -46,7 +45,6 @@ const { addToCart } = useCartStore();
       </div>
     </div>
   </section>
-  <Banner />
 </template>
 
 <script>
@@ -54,6 +52,10 @@ const { getProduct } = useProductsStore();
 
 export default {
   mounted() {
+    const route = parseInt(this.$route.params.id);
+    getProduct(route);
+  },
+  updated() {
     const route = parseInt(this.$route.params.id);
     getProduct(route);
   },

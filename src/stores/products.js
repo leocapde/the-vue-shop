@@ -4,6 +4,7 @@ export const useProductsStore = defineStore({
   id: "products",
   state: () => ({
     filter: "all",
+    trending: [],
     product: {},
     products: [
       {
@@ -46,7 +47,7 @@ export const useProductsStore = defineStore({
         name: 'Écran PC 24" Professionnel ViewFinity S60U',
         price: 199,
         categorie: "moniteurs",
-        trending: false,
+        trending: true,
         specs: {
           Marque: "Samsung",
           Taille: '24"',
@@ -84,9 +85,12 @@ export const useProductsStore = defineStore({
     resetFilter() {
       this.filter = "all";
     },
-    async getProduct(id) {
+    getProduct(id) {
       const index = this.products.findIndex((product) => product.id === id);
       this.product = this.products[index];
+    },
+    getTrending() {
+      this.trending = this.products.filter((item) => item.trending);
     },
   },
 });

@@ -25,6 +25,9 @@ const { products, filter } = storeToRefs(useProductsStore());
 </template>
 
 <style scoped lang="scss">
+#ProductsList {
+  margin-bottom: 25px;
+}
 .productsList-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);

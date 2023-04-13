@@ -59,6 +59,7 @@ const { toggleFilter } = useProductsStore();
   justify-content: center;
   align-items: end;
   font-size: 1.2rem;
+  min-height: 225px;
 
   &-one {
     grid-column: 1 / span 2;
@@ -73,6 +74,7 @@ const { toggleFilter } = useProductsStore();
     @media (max-width: 768px) {
       grid-column: 1 / span 4;
       grid-row: 1;
+      aspect-ratio: auto;
     }
   }
 
