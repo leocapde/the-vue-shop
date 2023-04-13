@@ -4,6 +4,7 @@ import { useCartStore } from "../stores/cart";
 import CartProduct from "../components/CartProduct.vue";
 import CartTotal from "../components/CartTotal.vue";
 import DeleteBtn from "../components/buttons/DeleteBtn.vue";
+import ValidateBtn from "../components/buttons/ValidateBtn.vue";
 import Banner from "../components/Banner.vue";
 import Trending from "../components/Trending.vue";
 
@@ -23,27 +24,39 @@ const { deleteToCart } = useCartStore();
           <template #quantity>{{ item.quantity }}</template>
           <template #price>{{ item.price }}</template>
           <template #totalPrice>{{ item.totalPrice }}</template>
-          <template #btn
-            ><DeleteBtn v-on:click="deleteToCart(item.id)">
+          <template #btn>
+            <DeleteBtn v-on:click="deleteToCart(item.id)">
               <template #deleteBtn>Supprimer</template>
-            </DeleteBtn></template
-          >
+            </DeleteBtn>
+          </template>
         </CartProduct>
       </div>
       <div class="cart-showing-total">
         <CartTotal>
           <template #totalPrice>{{ this.totalPrice }} €</template>
-          <template #blabla>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Reprehenderit iste quis excepturi, possimus suscipit consequuntur
-            quidem perferendis dolorem alias. Molestias id officiis veritatis
-            error aliquam!
+          <template #validateCart>
+            <ValidateBtn class="cart-total-btn" v-on:click="confirmBuy()">
+              <template #validateBtn>Valider le panier</template>
+            </ValidateBtn>
           </template>
         </CartTotal>
       </div>
     </div>
-    <Banner />
+
+    <!-- Message de confirmation d'achat -->
+    <div class="confirm-wrapper" v-if="buyConfirm">
+      <div class="confirm-container">
+        <p class="confirm-text">Votre achat a bien été validé !</p>
+        <RouterLink class="confirm-link" to="/">
+          <ValidateBtn class="confirm-link-btn" v-on:click="validateBuy()">
+            <template #validateBtn>Retour page d'accueil</template>
+          </ValidateBtn>
+        </RouterLink>
+      </div>
+    </div>
+
     <Trending />
+    <Banner />
   </main>
 </template>
 
@@ -53,6 +66,7 @@ export default {
     return {
       totalPrice: 0,
       cart: storeToRefs(useCartStore()),
+      buyConfirm: false,
     };
   },
   mounted() {
@@ -69,6 +83,15 @@ export default {
         this.totalPrice += item.price * item.quantity;
       });
     }
+  },
+  methods: {
+    confirmBuy() {
+      this.buyConfirm = true;
+    },
+    validateBuy() {
+      this.buyConfirm = false;
+      this.cart["cart"] = [];
+    },
   },
 };
 </script>
@@ -89,7 +112,7 @@ export default {
 
   &-total {
     margin-left: 10px;
-    width: 300px;
+    width: 350px;
   }
 
   // Large screen
@@ -104,6 +127,45 @@ export default {
       margin-left: 0;
       width: 100%;
     }
+  }
+}
+
+.confirm {
+  &-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-container {
+    background-color: var(--color-background-mute);
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-link {
+    border-radius: 10px;
+
+    &:hover {
+      background: none;
+    }
+
+    &-btn {
+      width: 100%;
+    }
+  }
+
+  &-text {
+    font-weight: bold;
   }
 }
 </style>

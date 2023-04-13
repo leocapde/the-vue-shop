@@ -3,6 +3,8 @@ import { storeToRefs } from "pinia";
 import { useProductsStore } from "../stores/products";
 import { useCartStore } from "../stores/cart";
 import ValidateBtn from "./buttons/ValidateBtn.vue";
+import DeleteBtn from "./buttons/DeleteBtn.vue";
+
 const { product } = storeToRefs(useProductsStore());
 const { addToCart } = useCartStore();
 </script>
@@ -24,11 +26,14 @@ const { addToCart } = useCartStore();
       <ValidateBtn
         class="product-showing-btn"
         v-on:click="
-          addToCart({
-            id: product.id,
-            name: product.name,
-            price: product.price,
-          })
+          {
+            addToCart({
+              id: product.id,
+              name: product.name,
+              price: product.price,
+            });
+            confirmProduct();
+          }
         "
       >
         <template #validateBtn>Ajouter au panier 🛒</template>
@@ -44,6 +49,24 @@ const { addToCart } = useCartStore();
         <span>{{ key }} :</span> {{ value }}
       </div>
     </div>
+
+    <!-- Message de confirmation d'ajout -->
+    <div class="confirm-wrapper" v-if="addConfirm">
+      <div class="confirm-container">
+        <p class="confirm-text">Votre produit a bien été ajouté au panier !</p>
+        <p class="confirm-title">{{ product.name }}</p>
+        <RouterLink class="confirm-link" to="/cart">
+          <ValidateBtn class="confirm-link-btn" v-on:click="validateProduct()">
+            <template #validateBtn>Voir le panier</template>
+          </ValidateBtn>
+        </RouterLink>
+        <RouterLink class="confirm-link" to="/products">
+          <DeleteBtn class="confirm-link-btn" v-on:click="validateProduct()">
+            <template #deleteBtn>Continuer votre shopping</template>
+          </DeleteBtn>
+        </RouterLink>
+      </div>
+    </div>
   </section>
 </template>
 
@@ -51,6 +74,11 @@ const { addToCart } = useCartStore();
 const { getProduct } = useProductsStore();
 
 export default {
+  data() {
+    return {
+      addConfirm: false,
+    };
+  },
   mounted() {
     const route = parseInt(this.$route.params.id);
     getProduct(route);
@@ -58,6 +86,14 @@ export default {
   updated() {
     const route = parseInt(this.$route.params.id);
     getProduct(route);
+  },
+  methods: {
+    confirmProduct() {
+      this.addConfirm = true;
+    },
+    validateProduct() {
+      this.addConfirm = false;
+    },
   },
 };
 </script>
@@ -161,6 +197,50 @@ export default {
         font-weight: bold;
       }
     }
+  }
+}
+
+.confirm {
+  &-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &-container {
+    background-color: var(--color-background-mute);
+    padding: 25px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-link {
+    border-radius: 10px;
+
+    &:hover {
+      background: none;
+    }
+
+    &-btn {
+      width: 100%;
+    }
+  }
+
+  &-text {
+    font-weight: bold;
+  }
+
+  &-title {
+    font-style: italic;
+    font-size: 1.3rem;
   }
 }
 </style>

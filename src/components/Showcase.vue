@@ -59,7 +59,7 @@ const { toggleFilter } = useProductsStore();
   justify-content: center;
   align-items: end;
   font-size: 1.2rem;
-  min-height: 225px;
+  min-height: 250px;
 
   &-one {
     grid-column: 1 / span 2;

@@ -14,7 +14,6 @@ export const useCartStore = defineStore({
       } else {
         item.quantity++;
       }
-      window.alert("Votre produit a bien été ajouté au panier !");
     },
     deleteToCart(id) {
       this.cart = this.cart.filter((item) => item.id != id);

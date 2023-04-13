@@ -21,6 +21,11 @@
   transition: 0.4s;
   display: grid;
   grid-template-columns: 1fr;
+  min-height: 250px;
+
+  @media (max-width: 768px) {
+    aspect-ratio: auto;
+  }
 
   &-container {
     margin: 0;
