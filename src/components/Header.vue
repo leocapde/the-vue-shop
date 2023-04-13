@@ -1,6 +1,10 @@
 <script setup>
 import { useProductsStore } from "../stores/products";
+import { useCartStore } from "../stores/cart";
+import { storeToRefs } from "pinia";
+
 const { resetFilter } = useProductsStore();
+const { cart } = storeToRefs(useCartStore());
 </script>
 
 <template>
@@ -25,7 +29,12 @@ const { resetFilter } = useProductsStore();
         v-on:click="resetFilter"
         >Produits</RouterLink
       >
-      <RouterLink class="header-nav-item" to="/cart"> Panier </RouterLink>
+      <RouterLink class="header-nav-item" to="/cart">
+        Panier
+        <div class="cart-counter">
+          {{ cart.length }}
+        </div>
+      </RouterLink>
     </nav>
   </header>
 </template>
@@ -78,5 +87,16 @@ const { resetFilter } = useProductsStore();
   &.router-link-exact-active:hover {
     background-color: transparent;
   }
+}
+
+.cart-counter {
+  margin-left: 5px;
+  background-color: hsla(160, 100%, 37%, 0.2);
+  border-radius: 100%;
+  height: 35px;
+  width: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

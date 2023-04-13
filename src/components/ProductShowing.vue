@@ -1,8 +1,11 @@
 <script setup>
 import { storeToRefs } from "pinia";
 import { useProductsStore } from "../stores/products";
+import { useCartStore } from "../stores/cart";
 import Banner from "./Banner.vue";
+import ValidateBtn from "./buttons/ValidateBtn.vue";
 const { product } = storeToRefs(useProductsStore());
+const { addToCart } = useCartStore();
 </script>
 
 <template>
@@ -11,15 +14,26 @@ const { product } = storeToRefs(useProductsStore());
     <div class="product-showing-description">
       <h3 class="product-showing-title">{{ product.name }}</h3>
       <div class="product-showing-text">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellendus
-        voluptate, quae incidunt explicabo quidem nam sit earum doloribus
-        facilis rem natus adipisci sequi mollitia omnis aliquid doloremque illo
-        dolorem perspiciatis quasi ipsa. Et labore necessitatibus, porro
-        eligendi saepe aliquam magnam, mollitia earum explicabo excepturi aut!
-        Est, ipsum voluptas. Fugiat, dignissimos.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. In, sit alias
+        ab temporibus aliquid labore blanditiis nihil saepe, sequi earum odit,
+        quos dicta. Incidunt, libero voluptate. Ducimus quaerat iure et id
+        repellat totam voluptatibus dolor quia, veritatis sequi quae sit natus,
+        officiis similique, voluptatem odio accusamus doloribus laborum
+        perferendis cupiditate.
       </div>
       <div class="product-showing-price">{{ product.price }}€</div>
-      <button class="product-showing-btn green">Ajouter au panier 🛒</button>
+      <ValidateBtn
+        class="product-showing-btn"
+        v-on:click="
+          addToCart({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+          })
+        "
+      >
+        <template #validateBtn>Ajouter au panier 🛒</template>
+      </ValidateBtn>
     </div>
     <div class="product-showing-spec" v-if="product.specs">
       <h4 class="product-showing-spec-title">Caractéristiques</h4>
@@ -114,30 +128,11 @@ export default {
     font-size: 1.5rem;
   }
 
-  &-btn {
-    background: none;
-    cursor: pointer;
-    padding: 10px 25px;
-    margin: auto;
-    border: 2px solid hsla(160, 100%, 37%, 0.2);
-    border-radius: 10px;
-    font-size: 1rem;
-
-    &:hover {
-      background-color: hsla(160, 100%, 37%, 0.2);
-    }
-
-    &:active {
-      background: none;
-    }
-  }
-
   &-spec {
     grid-column: 1 / span 2;
     grid-row: 2;
     margin-top: 25px;
     padding: 10px 20px;
-    // border: 1px solid var(--color-border);
     border-radius: 10px;
 
     // Medium screen

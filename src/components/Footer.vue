@@ -1,6 +1,6 @@
 <template>
   <footer id="Footer">
-    <p>Copyright 2023 - Tous droits réservés</p>
+    <p>Copyright 2023 - Léo Capdevielle - Tous droits réservés</p>
   </footer>
 </template>
 

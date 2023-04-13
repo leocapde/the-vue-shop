@@ -1,4 +1,5 @@
 <script setup>
+import ValidateBtn from "./buttons/ValidateBtn.vue";
 import { useProductsStore } from "../stores/products";
 const { resetFilter } = useProductsStore();
 </script>
@@ -14,10 +15,12 @@ const { resetFilter } = useProductsStore();
           </p>
           <RouterLink
             to="/products"
-            class="banner-text-btn"
+            class="banner-text-link"
             v-on:click="resetFilter"
           >
-            Découvrir nos produits
+            <ValidateBtn class="banner-text-btn">
+              <template #validateBtn>Découvrir nos produits</template>
+            </ValidateBtn>
           </RouterLink>
         </div>
       </div>
@@ -63,10 +66,10 @@ const { resetFilter } = useProductsStore();
     margin: 20px 0 30px 0;
   }
 
-  &-btn {
-    padding: 10px 25px;
-    border: 2px solid hsla(160, 100%, 37%, 0.2);
-    border-radius: 10px;
+  &-link {
+    &:hover {
+      background: none;
+    }
   }
 }
 
