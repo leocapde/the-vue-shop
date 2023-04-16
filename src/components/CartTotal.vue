@@ -1,7 +1,3 @@
-<script setup>
-import ValidateBtn from "./buttons/ValidateBtn.vue";
-</script>
-
 <template>
   <div id="CartTotal">
     <h4 class="cart-total-price">Prix total : <slot name="totalPrice" /></h4>
@@ -34,7 +30,7 @@ import ValidateBtn from "./buttons/ValidateBtn.vue";
 .cart-total {
   &-price {
     font-weight: bold;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     padding: 10px 0;
   }
 

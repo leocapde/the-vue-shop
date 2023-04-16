@@ -20,6 +20,9 @@ const { deleteToCart } = useCartStore();
     <div class="cart-showing" v-else>
       <div class="cart-showing-items">
         <CartProduct v-for="item in cart">
+          <template #img>
+            <img :src="item.img" :alt="item.name" />
+          </template>
           <template #title>{{ item.name }}</template>
           <template #quantity>{{ item.quantity }}</template>
           <template #price>{{ item.price }}</template>
@@ -55,8 +58,8 @@ const { deleteToCart } = useCartStore();
       </div>
     </div>
 
-    <Trending />
     <Banner />
+    <Trending />
   </main>
 </template>
 
@@ -105,9 +108,16 @@ export default {
 
 .cart-showing {
   display: flex;
+  padding: 50px 0;
 
   &-items {
     flex: 1;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
   }
 
   &-total {

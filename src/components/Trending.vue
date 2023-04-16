@@ -17,6 +17,9 @@ const { trending } = storeToRefs(useProductsStore());
       >
         <template #title>{{ product.name }}</template>
         <template #price>{{ product.price }} €</template>
+        <template #img v-if="product.img">
+          <img :src="product.img" :alt="product.name" />
+        </template>
       </ProductsCard>
     </div>
   </section>
@@ -33,6 +36,15 @@ export default {
 </script>
 
 <style scoped lang="scss">
+#Trending {
+  padding: 25px 0;
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+}
+
 .trending {
   &-title {
     font-size: 1.5rem;

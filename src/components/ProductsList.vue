@@ -19,6 +19,9 @@ const { products, filter } = storeToRefs(useProductsStore());
       >
         <template #title>{{ product.name }}</template>
         <template #price>{{ product.price }} €</template>
+        <template #img v-if="product.img">
+          <img :src="product.img" :alt="product.name" />
+        </template>
       </ProductsCard>
     </div>
   </section>
@@ -26,7 +29,7 @@ const { products, filter } = storeToRefs(useProductsStore());
 
 <style scoped lang="scss">
 #ProductsList {
-  margin-bottom: 25px;
+  padding: 25px 0;
 }
 .productsList-container {
   display: grid;
@@ -53,6 +56,12 @@ const { products, filter } = storeToRefs(useProductsStore());
   &.moniteurs .products-card:not(.moniteurs),
   &.tablettes .products-card:not(.tablettes) {
     display: none;
+  }
+
+  img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 }
 </style>

@@ -11,33 +11,34 @@ const { addToCart } = useCartStore();
 
 <template>
   <section id="ProductShowing" :key="this.$route.params.id">
-    <div class="product-showing-img">cf: Image</div>
+    <div class="product-showing-img" v-if="product.img">
+      <img :src="product.img" />
+    </div>
+    <div class="product-showing-img" v-else>cf: Image</div>
     <div class="product-showing-description">
       <h3 class="product-showing-title">{{ product.name }}</h3>
       <div class="product-showing-text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. In, sit alias
-        ab temporibus aliquid labore blanditiis nihil saepe, sequi earum odit,
-        quos dicta. Incidunt, libero voluptate. Ducimus quaerat iure et id
-        repellat totam voluptatibus dolor quia, veritatis sequi quae sit natus,
-        officiis similique, voluptatem odio accusamus doloribus laborum
-        perferendis cupiditate.
+        {{ product.description }}
       </div>
-      <div class="product-showing-price">{{ product.price }}€</div>
-      <ValidateBtn
-        class="product-showing-btn"
-        v-on:click="
-          {
-            addToCart({
-              id: product.id,
-              name: product.name,
-              price: product.price,
-            });
-            confirmProduct();
-          }
-        "
-      >
-        <template #validateBtn>Ajouter au panier 🛒</template>
-      </ValidateBtn>
+      <div class="product-showing-cart">
+        <div class="product-showing-price">{{ product.price }}€</div>
+        <ValidateBtn
+          class="product-showing-btn"
+          v-on:click="
+            {
+              addToCart({
+                id: product.id,
+                name: product.name,
+                price: product.price,
+                img: product.img,
+              });
+              confirmProduct();
+            }
+          "
+        >
+          <template #validateBtn>Ajouter au panier 🛒</template>
+        </ValidateBtn>
+      </div>
     </div>
     <div class="product-showing-spec" v-if="product.specs">
       <h4 class="product-showing-spec-title">Caractéristiques</h4>
@@ -114,10 +115,17 @@ export default {
   &-img {
     grid-column: 1;
     grid-row: 1;
-    padding: 10px;
     border: 1px solid var(--color-border);
     border-radius: 10px;
     position: relative;
+    height: 400px;
+    overflow: hidden;
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
 
     // Medium screen
     @media (max-width: 768px) {
@@ -133,9 +141,8 @@ export default {
     grid-row: 1;
     padding: 25px;
     border-radius: 0 10px 10px 0;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, 1fr) / autoflex;
+    display: flex;
+    flex-direction: column;
 
     // Medium screen
     @media (max-width: 768px) {
@@ -149,14 +156,15 @@ export default {
     font-weight: bold;
     font-size: 2rem;
     padding: 25px 0;
-    grid-column: 1 / span 2;
-    grid-row: 1;
   }
 
   &-text {
-    grid-column: 1 / span 2;
-    grid-row: 2;
     margin-bottom: 25px;
+  }
+
+  &-cart {
+    display: flex;
+    justify-content: space-around;
   }
 
   &-price {

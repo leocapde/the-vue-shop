@@ -14,10 +14,11 @@
   border: 2px solid hsla(0, 100%, 37%, 0.5);
   border-radius: 10px;
   font-size: 1rem;
-  color: #bd0000;
+  color: #ff0000;
+  transition: 0.4s;
 
   &:hover {
-    background-color: hsla(0, 100%, 37%, 0.2);
+    background-color: hsla(0, 100%, 50%, 0.2);
   }
 
   &:active {

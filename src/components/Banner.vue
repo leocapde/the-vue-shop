@@ -1,4 +1,5 @@
 <script setup>
+import bannerImg from "../assets/banner.webp";
 import ValidateBtn from "./buttons/ValidateBtn.vue";
 import { useProductsStore } from "../stores/products";
 const { resetFilter } = useProductsStore();
@@ -24,7 +25,9 @@ const { resetFilter } = useProductsStore();
           </RouterLink>
         </div>
       </div>
-      <div class="banner-img-container">cf: Backgroud</div>
+      <div class="banner-img-container">
+        <img :src="bannerImg" />
+      </div>
     </div>
   </section>
 </template>
@@ -75,13 +78,16 @@ const { resetFilter } = useProductsStore();
 
 .banner-img-container {
   flex: 1;
-  background-color: var(--color-background-soft);
-  border-radius: 0 10px 10px 0;
-  padding: 10px;
 
-  @media (max-width: 768px) {
-    border-radius: 10px 10px 0 0;
-    min-height: 200px;
+  img {
+    border-radius: 0 10px 10px 0;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+
+    @media (max-width: 768px) {
+      border-radius: 10px 10px 0 0;
+    }
   }
 }
 </style>

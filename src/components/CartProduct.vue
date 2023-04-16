@@ -1,7 +1,7 @@
 <template>
   <div class="cart-product">
     <div class="cart-product-left">
-      <div class="cart-product-left-img">cf: Image</div>
+      <div class="cart-product-left-img"><slot name="img" /></div>
       <div class="cart-product-left-description">
         <h4 class="cart-product-title"><slot name="title" /></h4>
         <p class="cart-product-text green">Disponible ✓</p>
@@ -29,11 +29,11 @@
     display: flex;
 
     &-img {
-      height: 150px;
-      width: 200px;
+      height: 200px;
+      width: 250px;
       border-radius: 10px;
       border: 1px solid var(--color-border);
-      padding: 10px;
+      overflow: hidden;
     }
 
     &-description {
@@ -58,6 +58,11 @@
 
   &-price {
     font-weight: bold;
+    font-size: 1.3rem;
+  }
+
+  &-quantity {
+    font-size: 1.2rem;
   }
 }
 </style>

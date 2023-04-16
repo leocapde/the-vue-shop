@@ -1,5 +1,8 @@
 <template>
   <RouterLink to="" class="products-card">
+    <div class="products-card-img">
+      <slot name="img" />
+    </div>
     <div class="products-card-container">
       <h4 class="products-card-title">
         <slot name="title" />
@@ -13,7 +16,6 @@
 
 <style scoped lang="scss">
 .products-card {
-  background-color: var(--color-background-mute);
   aspect-ratio: 1;
   border-radius: 10px;
   padding: 0;
@@ -22,6 +24,9 @@
   display: grid;
   grid-template-columns: 1fr;
   min-height: 250px;
+  border: 1px solid var(--color-border);
+  color: black;
+  text-shadow: 0 0 5px white;
 
   @media (max-width: 768px) {
     aspect-ratio: auto;
@@ -38,7 +43,7 @@
 
     &:hover {
       padding-bottom: 25px;
-      background-color: var(--color-background-soft);
+      background-color: rgba(0, 0, 0, 0.1);
     }
   }
 
@@ -46,6 +51,14 @@
     font-weight: bold;
     font-size: 1.5rem;
     margin: 0;
+  }
+
+  &-img {
+    position: absolute;
+    overflow: hidden;
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
   }
 }
 </style>
