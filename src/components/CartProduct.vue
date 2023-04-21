@@ -34,6 +34,11 @@
       border-radius: 10px;
       border: 1px solid var(--color-border);
       overflow: hidden;
+
+      @media (max-width: 768px) {
+        height: 100px;
+        width: 150px;
+      }
     }
 
     &-description {

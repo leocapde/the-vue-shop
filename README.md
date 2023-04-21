@@ -1,29 +1,9 @@
-# the-vue-shop
+# About the project
 
-This template should help get you started developing with Vue 3 in Vite.
+The-vue-shop est un simple site de e-commerce créé avec Vuejs. Ce site web intègre un design moderne, une navigation simple et une expérience d'achat intuitive.
 
-## Recommended IDE Setup
+### Build
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+- Vuejs 3
+- Pinia (store)
+- Vanilla CSS
