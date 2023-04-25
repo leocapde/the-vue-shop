@@ -10,7 +10,7 @@ const { addToCart } = useCartStore();
 </script>
 
 <template>
-  <section id="ProductShowing" :key="this.$route.params.id">
+  <section id="ProductShowing" :key="$route.params.id">
     <div class="product-showing-img" v-if="product.img">
       <img :src="product.img" />
     </div>
@@ -232,6 +232,7 @@ export default {
 
   &-link {
     border-radius: 10px;
+    margin: 10px 0;
 
     &:hover {
       background: none;

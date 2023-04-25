@@ -36,9 +36,12 @@ const { deleteToCart } = useCartStore();
       </div>
       <div class="cart-showing-total">
         <CartTotal>
-          <template #totalPrice>{{ this.totalPrice }} €</template>
+          <template #totalPrice>{{ totalPrice }} €</template>
           <template #validateCart>
-            <ValidateBtn class="cart-total-btn" v-on:click="confirmBuy()">
+            <ValidateBtn
+              class="cart-showing-total-btn"
+              v-on:click="confirmBuy()"
+            >
               <template #validateBtn>Valider le panier</template>
             </ValidateBtn>
           </template>
@@ -123,6 +126,10 @@ export default {
   &-total {
     margin-left: 10px;
     width: 350px;
+
+    &-btn {
+      margin: 10px 0;
+    }
   }
 
   // Large screen
@@ -164,6 +171,7 @@ export default {
 
   &-link {
     border-radius: 10px;
+    margin: 10px 0;
 
     &:hover {
       background: none;

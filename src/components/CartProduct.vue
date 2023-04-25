@@ -10,7 +10,9 @@
     <div class="cart-product-right">
       <p class="cart-product-price">Prix : <slot name="price" /> €</p>
       <p class="cart-product-quantity">Quantité : <slot name="quantity" /></p>
-      <slot name="btn"></slot>
+      <div class="cart-product-btn">
+        <slot name="btn"></slot>
+      </div>
     </div>
   </div>
 </template>
@@ -68,6 +70,10 @@
 
   &-quantity {
     font-size: 1.2rem;
+  }
+
+  &-btn {
+    margin: 10px 0;
   }
 }
 </style>
