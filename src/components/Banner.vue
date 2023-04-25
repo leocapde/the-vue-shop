@@ -38,15 +38,14 @@ const { resetFilter } = useProductsStore();
 }
 
 .banner-container {
-  display: flex;
-
-  @media (max-width: 768px) {
-    flex-direction: column-reverse;
-  }
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr) / autoflex;
 }
 
 .banner-text-container {
-  flex: 1;
+  grid-column: 1;
+  grid-row: 1 / span 2;
   background-color: var(--color-background-mute);
   border-radius: 10px 0 0 10px;
   display: flex;
@@ -55,6 +54,8 @@ const { resetFilter } = useProductsStore();
 
   @media (max-width: 768px) {
     border-radius: 0 0 10px 10px;
+    grid-column: 1 / span 2;
+    grid-row: 2;
   }
 }
 
@@ -77,7 +78,14 @@ const { resetFilter } = useProductsStore();
 }
 
 .banner-img-container {
-  flex: 1;
+  grid-column: 2;
+  grid-row: 1 / span 2;
+
+  @media (max-width: 768px) {
+    border-radius: 10px 10px 0 0;
+    grid-column: 1 / span 2;
+    grid-row: 1;
+  }
 
   img {
     border-radius: 0 10px 10px 0;

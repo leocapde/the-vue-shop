@@ -27,19 +27,27 @@
   justify-content: space-between;
   align-items: center;
 
+  @media (max-width: 768px) {
+    flex-direction: column;
+    align-items: baseline;
+  }
+
   &-left {
     display: flex;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
 
     &-img {
       height: 200px;
       width: 250px;
       border-radius: 10px;
-      border: 1px solid var(--color-border);
       overflow: hidden;
 
       @media (max-width: 768px) {
-        height: 100px;
-        width: 150px;
+        height: 100%;
+        width: 100%;
       }
     }
 
@@ -61,6 +69,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: end;
+
+    @media (max-width: 768px) {
+      align-self: flex-end;
+    }
   }
 
   &-price {

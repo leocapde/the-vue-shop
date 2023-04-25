@@ -42,6 +42,7 @@ export default {
   display: flex;
   margin: 1rem 0;
   border-left: 1px solid var(--color-border);
+  flex-wrap: wrap;
 }
 
 .products-filter-btn {

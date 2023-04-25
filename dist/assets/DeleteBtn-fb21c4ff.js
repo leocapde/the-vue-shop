@@ -1,0 +1,1 @@
+import{_ as t,o as n,c,y as _}from"./index-b6d2559c.js";const s={},o={class:"DeleteBtn"};function r(e,a){return n(),c("button",o,[_(e.$slots,"deleteBtn",{},void 0,!0)])}const d=t(s,[["render",r],["__scopeId","data-v-1c73cf52"]]);export{d as D};
